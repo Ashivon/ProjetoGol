@@ -5,7 +5,9 @@ import java.util.Random;
 public class Main {
 	public static void main(String[] args) {
 		ArrayList<String> LocaldoGol= new ArrayList<String>();
-		MontarRegioes montar =  new MontarRegioes(LocaldoGol);
+		ArrayList<Object> ListaChutes = new ArrayList<Object>();
+		ArrayList<Object> ListaGoleiros =  new ArrayList<Object>();
+		MontarRegioes montar =  new MontarRegioes(LocaldoGol, ListaChutes, ListaGoleiros);
 		
 		int foras=0, traves=0, travessoes=0, gols=0;
 		int c, l;
@@ -36,5 +38,8 @@ public class Main {
 		acertou=new Regiao(LocaldoGol, l, c);
 		
 		System.out.println(acertou.getSecao()+"\n"+acertou.getQuadrante());
+		
+		SimularChutes testedegoleiro = new SimularChutes(LocaldoGol, ListaChutes, ListaGoleiros);
+		System.out.println(testedegoleiro.getResultado());
 	}
 }
