@@ -4,12 +4,19 @@ import java.util.Random;
 
 public class Main {
 	public static void main(String[] args) {
+		//MONTANDO LISTAS E SITUAÇÕES
 		ArrayList<String> LocaldoGol= new ArrayList<String>();
 		ArrayList<Object> ListaChutes = new ArrayList<Object>();
 		ArrayList<Object> ListaGoleiros =  new ArrayList<Object>();
 		MontarRegioes montar =  new MontarRegioes(LocaldoGol, ListaChutes, ListaGoleiros);
 		
-		int foras=0, traves=0, travessoes=0, gols=0;
+		//MONTANDO SIMULAÇÃO
+		Goleiro goleiros[]=new Goleiro[26];
+		Chutesprop chutes[]=new Chutesprop[30];
+		SimularChutes simulacao=new SimularChutes(LocaldoGol, ListaChutes, ListaGoleiros, chutes, goleiros);
+		System.out.println(simulacao.getResultado());
+		
+/*		int foras=0, traves=0, travessoes=0, gols=0;
 		int c, l;
 		Regiao acertou;
 		for(int i=0; i<9; i++) {
@@ -37,9 +44,6 @@ public class Main {
 		System.out.println("linha: "+l+" coluna: "+c);
 		acertou=new Regiao(LocaldoGol, l, c);
 		
-		System.out.println(acertou.getSecao()+"\n"+acertou.getQuadrante());
-		
-		SimularChutes testedegoleiro = new SimularChutes(LocaldoGol, ListaChutes, ListaGoleiros);
-		System.out.println(testedegoleiro.getResultado());
+		System.out.println(acertou.getSecao()+"\n"+acertou.getQuadrante());*/
 	}
 }

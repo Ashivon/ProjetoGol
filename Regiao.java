@@ -8,7 +8,7 @@ public class Regiao {
 	private int trave=0, gol=0, travessao=0, fora=0;
 	private int quadrante;
 	
-	public Regiao(ArrayList local, int x, int y) {
+	public Regiao(ArrayList<String> local, int x, int y) {
 		setY(y);
 		setX(x);
 		setSecao(local, x, y);
@@ -40,7 +40,7 @@ public class Regiao {
 			gol++;
 		}
 		if(x==0 || x==1 || y==0 || y==1 || y==16 || y==17) {
-			if(y==1 && x>1 || y==16 && x>1) {
+			if((y==1 && x>1) || (y==16 && x>1)) {
 				secao=(String) local.get(1);
 				trave++;
 			}
