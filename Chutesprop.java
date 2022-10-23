@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class Chutesprop {
 	private int forca, id, x, y, quadrante;
 	private String chutouem="";
-	private int chutouquadrante;
+	private int chutouquadrante, Defgol;
 	private Regiao chutada;
 	
 	public Chutesprop(int id,  int x, int y, int forca, ArrayList<String> LocaldoGol) {
@@ -74,4 +74,13 @@ public class Chutesprop {
 		if(x>=5 && x<=8 && y>=9 && y<=17)
 			this.quadrante=4;
 	}
+
+	//VERIFICANDO SE CHUTE FOI AGARRADO
+	public int getDefgol() {
+		return Defgol;
+	}
+	public void setDefgol(int Defgol) {
+		this.Defgol=Defgol;
+	}
+	
 }

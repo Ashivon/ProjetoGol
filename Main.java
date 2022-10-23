@@ -2,6 +2,8 @@ package ProjetoGol;
 import java.util.ArrayList;
 import java.util.Random;
 
+import javax.swing.JOptionPane;
+
 public class Main {
 	public static void main(String[] args) {
 		//MONTANDO LISTAS E SITUAÇÕES
@@ -14,8 +16,12 @@ public class Main {
 		Goleiro goleiros[]=new Goleiro[26];
 		Chutesprop chutes[]=new Chutesprop[30];
 		SimularChutes simulacao=new SimularChutes(LocaldoGol, ListaChutes, ListaGoleiros, chutes, goleiros);
-		System.out.println(simulacao.getResultado());
+		VerificarGoleiros verificando=new VerificarGoleiros(goleiros);
 		
+		//APRESENTANDO ESTATÍSTICAS DOS GOLEIROS
+		System.out.println(simulacao.getResultado());
+		System.out.println(verificando.getApresentar());
+
 /*		int foras=0, traves=0, travessoes=0, gols=0;
 		int c, l;
 		Regiao acertou;

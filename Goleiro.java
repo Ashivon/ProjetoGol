@@ -4,6 +4,7 @@ public class Goleiro {
 	private String nome;
 	private int id, velocidade, flexibilidade, agilidade, coordenacao, forca, equilibrio;
 	private int AAG;
+	private int chutesagarrados=0;
 	
 	public Goleiro(int id, String nome, int velocidade, int flexibilidade, int agilidade, int coordenacao, int forca, int equilibrio) {
 		//RECEBENDO ATRIBUTOS DOS GOLEIROS
@@ -91,5 +92,12 @@ public class Goleiro {
 	public void setAAG(int velocidade, int flexibilidade, int agilidade, int coordenacao, int forca, int equilibrio) {
 		this.AAG=((velocidade*3)+(flexibilidade*2)+(agilidade*3)+(coordenacao*2)+forca+(equilibrio*2)/8);
 	}
-	
+
+	//ARMAZENAR CHUTES AGARRADOS POR CADA GOLEIRO
+	public int getChutesagarrados() {
+		return chutesagarrados;
+	}
+	public void setChutesagarrados(int chutesagarrados) {
+		this.chutesagarrados += chutesagarrados;
+	}
 }

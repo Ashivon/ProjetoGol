@@ -2,10 +2,13 @@ package ProjetoGol;
 import java.util.ArrayList;
 import java.util.Random;
 
+import javax.swing.JOptionPane;
+
 public class Defesa {
 	private int areaGoleiro;
 	private String agarrar="";
-	private int linhadefesa, colunadefesa, contlinhas, contcolunas, auxlinhas=0;
+	private String apresentacao;
+	private int linhadefesa, contagarros, chutesdef, colunadefesa, contlinhas, contcolunas, auxlinhas=0;
 	
 	public Defesa(Goleiro goleiros, Chutesprop chutes, ArrayList<String> LocaldoGol) {
 		setAgarrar(LocaldoGol, linhadefesa, colunadefesa, contcolunas, auxlinhas, goleiros, chutes);
@@ -63,22 +66,32 @@ public class Defesa {
 			if(chutes.getX()>=(this.linhadefesa-4) && chutes.getX()<=this.linhadefesa && chutes.getY()<=(this.colunadefesa+this.contcolunas) && chutes.getY()>=this.colunadefesa) {
 				if(goleiros.getForca()>=chutes.getForca()) {
 					agarrar+="Goleiro "+goleiros.getNome()+" agarrou\nChute-"+chutes.getId()+"\nNo "+chutes.getQuadrante()+"° quadrante\nCoordenadas: "+this.linhadefesa+"(linha) : "+this.colunadefesa+"(coluna)\nAcertou em: "+chutes.getChutouem()+"\n\n";
+					contagarros++;
+					chutes.setDefgol(1);;
 				} else {
 					agarrar+="Goleiro "+goleiros.getNome()+" não agarrou chute-"+chutes.getId()+"\nNo "+chutes.getQuadrante()+"° quadrante\nCoordenadas: "+this.linhadefesa+"(linha) : "+this.colunadefesa+"(coluna)\nAcertou em: "+chutes.getChutouem()+"\n\n";
+					chutes.setDefgol(0);
 				}
 			} else {
 				agarrar+="Goleiro "+goleiros.getNome()+" não agarrou chute-"+chutes.getId()+"\nNo "+chutes.getQuadrante()+"° quadrante\nCoordenadas: "+this.linhadefesa+"(linha) : "+this.colunadefesa+"(coluna)\nAcertou em: "+chutes.getChutouem()+"\n\n";
+				chutes.setDefgol(0);
 			}
 		} else {
 			if(chutes.getX()>=(this.linhadefesa-contlinhas) && chutes.getX()<=this.linhadefesa && chutes.getY()==this.colunadefesa) {
 				if(goleiros.getForca()>=chutes.getForca()) {
 					agarrar+="Goleiro "+goleiros.getNome()+" agarrou chute-"+chutes.getId()+"\nNo "+chutes.getQuadrante()+"° quadrante\nCoordenadas: "+this.linhadefesa+"(linha) : "+this.colunadefesa+"(coluna)\nAcertou em: "+chutes.getChutouem()+"\n\n";
+					contagarros++;
+					
+					chutes.setDefgol(1);
 				} else {
 					agarrar+="Goleiro "+goleiros.getNome()+" não agarrou chute-"+chutes.getId()+"\nNo "+chutes.getQuadrante()+"° quadrante\nCoordenadas: "+this.linhadefesa+"(linha) : "+this.colunadefesa+"(coluna)\nAcertou em: "+chutes.getChutouem()+"\n\n";
+					chutes.setDefgol(0);
 				}
 			} else {
 				agarrar+="Goleiro "+goleiros.getNome()+" não agarrou chute-"+chutes.getId()+"\nNo "+chutes.getQuadrante()+"° quadrante\nCoordenadas: "+this.linhadefesa+"(linha) : "+this.colunadefesa+"(coluna)\nAcertou em: "+chutes.getChutouem()+"\n\n";
+				chutes.setDefgol(0);
 			}
 		}
+		goleiros.setChutesagarrados(contagarros);
 	}
 }	
